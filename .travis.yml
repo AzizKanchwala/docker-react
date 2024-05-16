@@ -3,7 +3,7 @@ services:
   - docker
 
 before_install:
-  - docker build -t aziz/docker-react -f Dockerfile.dev .
+  - travis_wait 22 docker build -t aziz/docker-react -f Dockerfile.dev .
 
 script:
   - docker run aziz/docker-react npm run test -- --coverage
